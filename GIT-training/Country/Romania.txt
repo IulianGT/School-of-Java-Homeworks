@@ -1,0 +1,9 @@
+Romania
+Bucharest
+<<<<<<< HEAD
+Hunedoara
+Timisoara
+=======
+Iasi
+Cluj
+>>>>>>> new_Spain_City

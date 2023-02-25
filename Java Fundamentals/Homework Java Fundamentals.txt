@@ -1,0 +1,511 @@
+
+** Java Stdin and Stdout I ******************************************************************
+
+public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scanner = new Scanner(System.in);
+        for(int i=0;i<3;i++){
+            
+        String scannedString = scanner.next();
+        int myInt = Integer.parseInt(scannedString);
+        System.out.println(myInt);
+        }
+        scanner.close();
+    }
+
+
+
+** Java Stdin and Stdout II ******************************************************************
+
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        String scannedString = scanner.nextLine();
+        int myInt = Integer.parseInt(scannedString);
+        
+        scannedString = scanner.nextLine();
+        double myDouble = Double.parseDouble(scannedString);
+        
+        scannedString = scanner.nextLine();
+        String myString = scannedString;
+        
+        System.out.println("String: "+myString +"\nDouble: " + myDouble +"\nInt: " + myInt);
+    }
+
+
+
+** Java If-Else ************************************************************************
+
+
+    public static void main(String[] args) {
+        
+        Scanner nScan = new Scanner( System.in );
+        
+        int n = nScan.nextInt();
+        
+        if( n % 2 != 0)
+        {
+            System.out.println("Weird");
+        }
+        else{
+            if(n>=2 && n<=5){
+                System.out.println("Not Weird");
+            }
+            else{
+                if(n>=6 && n<=20){
+                    System.out.println("Weird");
+                }
+                else{
+                    System.out.println("Not Weird");
+                }
+            }
+            
+        }
+        
+    }
+
+
+
+** JavaOutputFormatting *************************************************
+
+   public static void main(String[] args){
+          try {
+              File file = new File("C:\\Local Disk\\Homework\\Maven-Training\\Maven-Project-demo\\src\\main\\resources\\InputFiles\\Java Output Formatting");
+              Scanner scanner = new Scanner(file);
+              Collection<String> stringCol = new ArrayList<String>();
+              Collection<Integer> intCol = new ArrayList<Integer>();
+
+              String myString;
+              int myInt;
+
+              while(scanner.hasNext()) {
+                  myString = scanner.next();
+                  stringCol.add(myString);
+
+                  myInt = scanner.nextInt();
+                  intCol.add(myInt);
+              }
+
+              Iterator<Integer> iterator = intCol.iterator();
+
+              System.out.print("================================");
+              System.out.println();
+
+              stringCol.forEach((e) -> {
+                  System.out.print(e);
+                  int temp = iterator.next();
+
+
+                  if(temp / 100 != 0) {
+                      for (int i = 0; i < 15 - e.length(); i++)
+                          System.out.print(" ");
+                  }
+                  else {
+                      if(temp/10 != 0){
+                          for (int i = 0; i < 15 - e.length(); i++)
+                              System.out.print(" ");
+                          System.out.print("0");
+                      }
+                      else {
+                          for (int i = 0; i < 15 - e.length(); i++)
+                              System.out.print(" ");
+                          System.out.print("00");
+                      }
+                  }
+
+                  System.out.println(temp);
+              });
+
+              System.out.print("================================");
+
+
+          }catch (FileNotFoundException fnfe) {
+              System.out.println(fnfe);
+          }
+    }
+
+** Java Loops I *****************************************************************
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+
+        for(int i=1;i<=10;i++)
+        {
+            System.out.println(N + " * " + i + " = " + (N*i));
+        }
+    }
+
+
+
+
+
+** Java Loops II *************************************************************
+
+
+    public static void main(String[] args) {
+        try {
+            File file = new File("C:\\Local Disk\\Homework\\Maven-Training\\Maven-Project-demo\\src\\main\\resources\\InputFiles\\JavaLoops Input");
+            Scanner scanner = new Scanner(file);
+            int q = scanner.nextInt();
+            int a,b,n;
+            double calculus;
+
+            while(q>0){
+                a = scanner.nextInt();
+                b = scanner.nextInt();
+                n = scanner.nextInt();
+                for(int i=0;i<n;i++) {
+                    int j = i;
+                    calculus = a;
+                    while(j>=0) {
+                        calculus += Math.pow(2, j) * b;
+                        j--;
+                    }
+                    System.out.print((int)calculus + " ");
+                    }
+                System.out.println();
+                q--;
+                calculus = 0;
+            }
+        }catch (FileNotFoundException fnfe){
+            System.out.println(fnfe);
+        }
+    }
+
+-- Java DataTypes ------------------------------
+
+DataType Class
+
+public class DataTypes {
+
+    public void getByte(Long a) {
+        if(a>(Byte.MIN_VALUE) && a<(Byte.MAX_VALUE))
+            System.out.println("* byte");
+    }
+
+    public void getShort(Long a) {
+        if(a>(Short.MIN_VALUE) && a<(Short.MAX_VALUE))
+            System.out.println("* short");
+    }
+
+    public void getInt(Long a) {
+        if(a>(Integer.MIN_VALUE) && a<(Integer.MAX_VALUE))
+            System.out.println("* int");
+    }
+
+    public void getLong(Long a) {
+        if(a>(Long.MIN_VALUE) && a<(Long.MAX_VALUE))
+            System.out.println("* long");
+    }
+}
+
+
+
+-- MAIN ---------
+
+
+    try{
+        File file = new File("C:\\Local Disk\\Homework\\Maven-Training\\Maven-Project-demo\\src\\main\\resources\\InputFiles\\DataTypes");
+        Scanner scanner = new Scanner(file);
+        int n = scanner.nextInt();
+        DataTypes dataTypes = new DataTypes();
+        System.out.println(n);
+        for (int i = 0; i < n; i++) {
+            try {
+                long number = scanner.nextLong();
+                System.out.print("\n" + number + " can be fitted in:\n");
+                dataTypes.getByte(number);
+                dataTypes.getShort(number);
+                dataTypes.getInt(number);
+                dataTypes.getLong(number);
+                System.out.println();
+            }catch(Exception e){
+                scanner.nextLine();
+                System.out.println(" can't be fitted anywhere");
+            }
+        }
+        }catch(FileNotFoundException fnfe){
+            System.out.println(fnfe);
+    }
+
+    }
+
+
+** Java Int to String **************************************
+
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        Integer i = Integer.parseInt(s);
+        if(i instanceof Integer)
+        System.out.println("Good job");
+
+** Java Static Initilizer Block *********************
+
+    
+        static class BreadthAndHeightException extends Exception{
+        public String toString(){
+            return "Breadth and height must be positive!";
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int breadth = scanner.nextInt();
+        int height = scanner.nextInt();
+        Exception myBreadthAndHeightException = new BreadthAndHeightException();
+        try{
+            if(breadth >0 && height >0) {
+                System.out.println(breadth * height);
+            }
+            else{
+                throw new Exception("java.lang.Exception: Breadth and height must be positive");
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+** Java End of File *********************************************
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int counter = 1;
+        while(scanner.hasNext())
+        {
+            System.out.print(counter + " ");
+            System.out.println(scanner.nextLine());
+            counter++;
+        }
+    }
+
+** Java Strings Introduction ************************************************************************
+
+        Scanner sc = new Scanner(System.in);
+        String A = sc.next();
+        String B = sc.next();
+
+        System.out.println(A.length() + B.length());
+
+        if(A.compareTo(B)>0){
+            System.out.println("Yes");
+        }
+        else {
+            System.out.println("No");
+        }
+        A = A.substring(0,1).toUpperCase() + A.substring(1,A.length());
+
+        B = B.substring(0,1).toUpperCase() + B.substring(1,B.length());
+
+        System.out.println(A + " " + B);
+
+** Java Calendar ********************************************************************
+
+    public static String findDay(int month, int day, int year) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MONTH,month-1);
+        calendar.set(Calendar.DAY_OF_MONTH,day);
+        calendar.set(Calendar.YEAR,year);
+        String theDay = calendar.getDisplayName(Calendar.DAY_OF_WEEK,Calendar.LONG,Locale.US);
+    return calendar.getDisplayName(Calendar.MONTH,Calendar.LONG,Locale.US);
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:\\Local Disk\\Homework\\Java Fundamentals\\Maven-Project-demo\\src\\main\\resources\\OutputFiles"));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int month = Integer.parseInt(firstMultipleInput[0]);
+
+        int day = Integer.parseInt(firstMultipleInput[1]);
+
+        int year = Integer.parseInt(firstMultipleInput[2]);
+
+        String res = findDay(month, day, year);
+        System.out.println(res);
+        bufferedWriter.write(res);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+
+
+** Currency Formatter ************************************************************************
+  public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            double payment = scanner.nextDouble();
+            Locale INDIA = new Locale("en","IN");
+            String paymentUS = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
+            String paymentIndia = NumberFormat.getCurrencyInstance(INDIA).format(payment);
+            String paymentChina = NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
+            String paymentFrance = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
+            System.out.print("US: ");
+            System.out.println(paymentUS);
+            System.out.print("India: ");
+            System.out.println(paymentIndia);
+            System.out.print("China: ");
+            System.out.println(paymentChina);
+            System.out.print("France: ");
+            System.out.println(paymentFrance);
+
+
+        }catch (FileNotFoundException fnfe){
+            System.out.println(fnfe);
+        }
+    }
+
+** Java Substring *****************************************************************************
+
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        
+        System.out.println(S.substring(start,end));
+    }
+
+** Java Substring Comparison ******************************************************************
+
+    public static String getSmallestAndLargest(String s, int k) {
+        String smallest = "";
+        String largest = "";
+        smallest = largest = s.substring(0,k);
+        int i = 0;
+        while( i + k <= s.length() )
+        {
+            String temp = s.substring(i,k+i);
+            
+            if(temp.compareTo(smallest) <= 0 )
+                {
+                    smallest = temp;
+                }
+            if(temp.compareTo(largest) >= 0){
+                    largest = temp;
+            }
+            i++;
+        }
+        return smallest + "\n" + largest;
+    }
+
+** Java String Reverse ***************************************************
+
+public class Solution {
+    
+    public String reverseString(String s){
+        StringBuilder sb = new StringBuilder(s);
+        sb.reverse();
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        Solution reversedStr = new Solution();
+        
+        String AReversed ="";
+        AReversed = reversedStr.reverseString(A);
+        
+        if(AReversed.equals(A)){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        }
+        
+    }
+}
+
+
+** Java Anagrams *****************************************************************
+
+import java.util.Scanner;
+import java.util.*;
+
+public class Solution {
+    static boolean isAnagram(String a, String b) {
+        // Complete the function
+        int[] 
+        counterA= new int[27],
+        counterB= new int[27];
+        
+        a=a.toUpperCase();
+        b=b.toUpperCase();
+        
+        for(int i=0;i<a.length();i++){
+            counterA[a.charAt(i) - 'A']++;
+        }
+        
+        for(int i=0;i<b.length();i++){
+            counterB[b.charAt(i) - 'A']++;
+        }
+        
+        return Arrays.equals(counterA, counterB);
+
+    }
+
+  public static void main(String[] args) {
+    
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+    }
+}
+
+** Java String Tokens *******************************************************
+
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        // Write your code here.
+        while((s.charAt(0)<'A' || s.charAt(0)>'Z' && s.charAt(0) <'a' || s.charAt(0)>'z') && s.length()>1)
+        {
+            s = s.substring(1,s.length());
+        }
+        
+        String[] rezultat = s.split("[ !,?._'@]+");    
+        System.out.println(rezultat.length);   
+        for (String a : rezultat)
+            System.out.println(a);
+        scan.close();
+    }
+
+
+** Pattern Syntax Checker **************************************************************************
+
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		int testCases = Integer.parseInt(in.nextLine());
+		while(testCases>0){
+			String pattern = in.nextLine();
+          	
+              try{
+                  Pattern.compile(pattern);
+                  System.out.println("Valid");
+              }catch(PatternSyntaxException pse){
+                  System.out.println("Invalid");
+              }
+              testCases--;
+		}
+	}
+
+** Java Regex *************************************************************************************
+
+class MyRegex{
+    String zeroTo255 = "(\\d{1,2}|(0|1)\\d{2}|2[0-4]\\d|25[0-5])";
+    
+    String pattern = zeroTo255 + "\\." + zeroTo255 + "\\." + zeroTo255 + "\\." + zeroTo255;
+    
+}
+
+
